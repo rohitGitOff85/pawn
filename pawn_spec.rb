@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Pawn, type: :model do
   describe ".process_comments" do
     let!(:obj) { PawnSimulator.new }
+
     context "when type is 'place'" do
       let!(:type) { "place" }
       let!(:options) { {:x => 0, :y => 0, :f => "NORTH", :c => "BLACK"} }
@@ -25,7 +26,7 @@ RSpec.describe Pawn, type: :model do
       let!(:type) { "left" }
       it "Should call PawnSimulator -> left function" do
         expect_any_instance_of(PawnSimulator).to receive(:left).once
-        Pawn.process_comments(obj, type, options)
+        Pawn.process_comments(obj, type)
       end
     end
 
@@ -33,7 +34,7 @@ RSpec.describe Pawn, type: :model do
       let!(:type) { "right" }
       it "Should call PawnSimulator -> right function" do
         expect_any_instance_of(PawnSimulator).to receive(:right).once
-        Pawn.process_comments(obj, type, options)
+        Pawn.process_comments(obj, type)
       end
     end
 
@@ -41,7 +42,7 @@ RSpec.describe Pawn, type: :model do
       let!(:type) { "report" }
       it "Should call PawnSimulator -> report function" do
         expect_any_instance_of(PawnSimulator).to receive(:report).once
-        Pawn.process_comments(obj, type, options)
+        Pawn.process_comments(obj, type)
       end
     end
   end
