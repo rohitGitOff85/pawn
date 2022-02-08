@@ -1,4 +1,4 @@
-class Pawn < ActiveRecord::Base
+class Pawn
   def self.init
     PawnSimulator.new
   end
@@ -18,4 +18,3 @@ class Pawn < ActiveRecord::Base
     end
   end
 end
-
